@@ -26,3 +26,16 @@ module IPL where
 
   ∧-assoc : { P Q R : Set } → ((P ∧ Q) ∧ R) ⇔  (P ∧ (Q ∧ R))
   ∧-assoc = ∧-intro ∧-assoc₁ ∧-assoc₂
+
+
+  -- Disjunction
+  data _∨_ (P Q : Set) : Set where
+     ∨-intro₁ : P → P ∨ Q
+     ∨-intro₂ : Q → P ∨ Q
+
+
+  ∨-elim : { A B C : Set} → (A → C ) → (B → C) → (A ∨ B ) → C
+  ∨-elim ac bc (∨-intro₁ a) = ac a
+  ∨-elim ac bc (∨-intro₂ b) = bc b
+
+ -- other stuff 
